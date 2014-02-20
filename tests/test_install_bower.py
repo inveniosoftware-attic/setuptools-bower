@@ -27,7 +27,8 @@ import tempfile
 from unittest import TestCase
 
 from setuptools.dist import Distribution
-from setuptools_bower.setuptools_command import BowerInstallCommand
+from setuptools_bower.setuptools_command import BowerBuildCommand, \
+    NPMBuildCommand, GruntBuildCommand
 
 
 SETUP_ATTRS = {
@@ -59,14 +60,39 @@ BOWERRC = """
 }
 """
 
+PACKAGES_JSON = """
+{
+  "name": "npm_install_test",
+  "version": "0.0.0",
+  "dependencies": {
+    "grunt": "*"
+  }
+}
+"""
 
-class TestBowerInstallCommand(TestCase):
+GRUNTFILE_JS = """
+module.exports = function(grunt) {
+    grunt.registerTask('build', 'Setup test', function () {
+       if (grunt.option('path') === undefined) {
+            return true
+       } else {
+            return grunt.option('path') == 'test'
+       }
+    });
+}
+"""
+
+
+class TestBowerBuildCommand(TestCase):
     def setUp(self):
         self.temp_dir = tempfile.mkdtemp()
 
         for filename, content in [('setup.py', SETUP_PY),
                                   ('bower.json', BOWER_JSON),
-                                  ('.bowerrc', BOWERRC), ]:
+                                  ('.bowerrc', BOWERRC),
+                                  ('package.json', PACKAGES_JSON),
+                                  ('Gruntfile.js', GRUNTFILE_JS),
+                                  ]:
             f = open(os.path.join(self.temp_dir, filename), 'w')
             f.write(content)
             f.close()
@@ -78,16 +104,28 @@ class TestBowerInstallCommand(TestCase):
         os.chdir(self.old_cwd)
         shutil.rmtree(self.temp_dir)
 
-    def test_install(self):
+    def test_bower_install(self):
         """
+        Test bower install command
         """
         assert not os.path.exists(
             os.path.join(self.temp_dir, 'bower_components')
         )
 
+        assert not os.path.exists(
+            os.path.join(self.temp_dir, 'node_modules')
+        )
+
         dist = Distribution(SETUP_ATTRS)
         dist.script_name = 'setup.py'
-        cmd = BowerInstallCommand(dist)
+
+        cmd = NPMBuildCommand(dist)
+        cmd.ensure_finalized()
+        cmd.run()
+
+        assert os.path.exists(os.path.join(self.temp_dir, 'node_modules'))
+
+        cmd = BowerBuildCommand(dist)
         cmd.ensure_finalized()
         cmd.run()
 
@@ -97,4 +135,11 @@ class TestBowerInstallCommand(TestCase):
         cmd.run()
 
         cmd.production = True
+        cmd.run()
+
+        cmd = GruntBuildCommand(dist)
+        cmd.ensure_finalized()
+        cmd.run()
+
+        cmd.path = 'test'
         cmd.run()

@@ -44,7 +44,9 @@ setup(
     ],
     entry_points={
         "distutils.commands": [
-            "install_bower = setuptools_bower.setuptools_command:BowerInstallCommand",
+            "build_bower = setuptools_bower.setuptools_command:BowerBuildCommand",
+            "build_grunt = setuptools_bower.setuptools_command:GruntBuildCommand",
+            "build_npm = setuptools_bower.setuptools_command:NPMBuildCommand",
         ]
     },
     test_suite='nose.collector',
