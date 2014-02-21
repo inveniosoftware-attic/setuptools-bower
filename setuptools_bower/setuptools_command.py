@@ -75,13 +75,15 @@ class GruntBuildCommand(setuptools.Command):
     def initialize_options(self):
         """ Default values for options """
         self.path = None
-        self.grunt_command = 'build'
+        self.grunt_command = None
 
     def finalize_options(self):
         pass
 
     def run(self):
-        cmd = ['grunt', self.grunt_command]
+        cmd = ['grunt']
+        if self.grunt_command:
+            cmd.append(self.grunt_command)
         if self.path:
             cmd.append('--path=%s' % self.path)
         self.spawn(cmd)
