@@ -21,13 +21,14 @@
 ## granted to it by virtue of its status as an Intergovernmental Organization
 ## or submit itself to any jurisdiction.
 
+"""Custom setuptools commands implementation."""
+
 import setuptools
 
 
 class BowerBuildCommand(setuptools.Command):
-    """
-    Setuptools command for running ```bower <command>```
-    """
+
+    """Setuptools command for running ``bower <command>``."""
 
     description = "run bower commands."
 
@@ -41,15 +42,17 @@ class BowerBuildCommand(setuptools.Command):
     boolean_options = ['production', 'force-latest']
 
     def initialize_options(self):
-        """ Default values for options """
+        """Set default values for options."""
         self.force_latest = False
         self.production = False
         self.bower_command = 'install'
 
     def finalize_options(self):
+        """Finalize options."""
         pass
 
     def run(self):
+        """Execute ``bower`` command."""
         cmd = ['bower', self.bower_command]
         if self.force_latest:
             cmd.append('-F')
@@ -59,9 +62,8 @@ class BowerBuildCommand(setuptools.Command):
 
 
 class GruntBuildCommand(setuptools.Command):
-    """
-    Setuptools command for running ```grunt <command>```
-    """
+
+    """Setuptools command for running ``grunt <command>``."""
 
     description = "run grunt commands."
 
@@ -73,14 +75,16 @@ class GruntBuildCommand(setuptools.Command):
     ]
 
     def initialize_options(self):
-        """ Default values for options """
+        """Set default values for options."""
         self.path = None
-        self.grunt_command = None
+        self.grunt_command = 'build'
 
     def finalize_options(self):
+        """Finalize options."""
         pass
 
     def run(self):
+        """Execute ``grunt`` command."""
         cmd = ['grunt']
         if self.grunt_command:
             cmd.append(self.grunt_command)
@@ -90,9 +94,8 @@ class GruntBuildCommand(setuptools.Command):
 
 
 class NPMBuildCommand(setuptools.Command):
-    """
-    Setuptools command for running ```npm <command>```
-    """
+
+    """Setuptools command for running ``npm <command>``."""
 
     description = "run NPM commands."
 
@@ -102,12 +105,14 @@ class NPMBuildCommand(setuptools.Command):
     ]
 
     def initialize_options(self):
-        """ Default values for options """
+        """Set default values for options."""
         self.npm_command = 'install'
 
     def finalize_options(self):
+        """Finalize options."""
         pass
 
     def run(self):
+        """Execute ``npm`` command."""
         cmd = ['npm', self.npm_command]
         self.spawn(cmd)

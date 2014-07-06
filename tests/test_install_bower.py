@@ -105,9 +105,7 @@ class TestBowerBuildCommand(TestCase):
         shutil.rmtree(self.temp_dir)
 
     def test_bower_install(self):
-        """
-        Test bower install command
-        """
+        """Test bower install command."""
         assert not os.path.exists(
             os.path.join(self.temp_dir, 'bower_components')
         )

@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 ##
-## This file is part of Flask-Registry
+## This file is part of setuptools-bower
 ## Copyright (C) 2013 CERN.
 ##
-## Flask-Registry is free software; you can redistribute it and/or
+## setuptools-bower is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License as
 ## published by the Free Software Foundation; either version 2 of the
 ## License, or (at your option) any later version.
 ##
-## Flask-Registry is distributed in the hope that it will be useful, but
+## setuptools-bower is distributed in the hope that it will be useful, but
 ## WITHOUT ANY WARRANTY; without even the implied warranty of
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ## General Public License for more details.
 ##
 ## You should have received a copy of the GNU General Public License
-## along with Flask-Registry; if not, write to the Free Software Foundation,
+## along with setuptools-bower; if not, write to the Free Software Foundation,
 ## Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 ##
 ## In applying this licence, CERN does not waive the privileges and immunities
@@ -110,17 +110,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/Flask-Registry.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/setuptools-bower.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/Flask-Registry.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/setuptools-bower.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/Flask-Registry"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/Flask-Registry"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/setuptools-bower"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/setuptools-bower"
 	@echo "# devhelp"
 
 epub:

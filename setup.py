@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##
 ## This file is part of setuptools-bower
-## Copyright (C) 2013 CERN.
+## Copyright (C) 2013, 2014 CERN.
 ##
 ## setuptools-bower is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License as
@@ -21,16 +21,26 @@
 ## granted to it by virtue of its status as an Intergovernmental Organization
 ## or submit itself to any jurisdiction.
 
+import os
+import re
+
 from setuptools import setup
+
+# Get the version string.  Cannot be done with import!
+with open(os.path.join('setuptools_bower', 'version.py'), 'rt') as f:
+    version = re.search(
+        '__version__\s*=\s*"(?P<version>.*)"\n',
+        f.read()
+    ).group('version')
 
 setup(
     name='setuptools-bower',
-    version='0.1',
+    version=version,
     url='http://github.com/inveniosoftware/setuptools-bower/',
     license='GPLv2',
     author='Invenio collaboration',
     author_email='info@invenio-software.org',
-    description='Setuptools commands for integrating bower',
+    description='Setuptools commands for integrating bower.',
     long_description=open('README.rst').read(),
     packages=['setuptools_bower', ],
     zip_safe=False,
@@ -41,6 +51,19 @@ setup(
         'six',
     ],
     classifiers=[
+        'Environment :: Web Environment',
+        'Framework :: Setuptools Plugin',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        #'Development Status :: 5 - Production/Stable',
     ],
     entry_points={
         "distutils.commands": [
@@ -50,5 +73,5 @@ setup(
         ]
     },
     test_suite='nose.collector',
-    tests_require=['nose', ],
+    tests_require=['nose', 'pep8', 'pep257'],
 )
