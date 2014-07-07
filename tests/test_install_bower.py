@@ -65,7 +65,8 @@ PACKAGES_JSON = """
   "name": "npm_install_test",
   "version": "0.0.0",
   "dependencies": {
-    "grunt": "*"
+    "grunt": "*",
+    "grunt-cli": "*"
   }
 }
 """
