@@ -1,5 +1,5 @@
 ==================
- Setuptools-Bower
+ setuptools-bower
 ==================
 .. currentmodule:: setuptools_bower
 
@@ -14,21 +14,18 @@
                  alt="coveralls.io badge"/></a>
     </p>
 
-Setuptools-Bower provides setuptools commands for integrating bower.
-
-It will:
-
-- Provide additional setuptools commands: ``build_npm``, ``build_bower``,
-  and ``build_grunt``.
-
-However, it does not:
-
-- Install ``npm``, ``bower``, or ``grunt``
-
 .. contents::
    :local:
    :backlinks: none
 
+About
+=====
+
+setuptools-bower provides setuptools commands for integrating bower.
+
+It provides additional setuptools commands ``build_npm``,
+``build_bower``, and ``build_grunt``.  However, it does not install
+``npm``, ``bower``, or ``grunt`` itself.
 
 User's Guide
 ============
