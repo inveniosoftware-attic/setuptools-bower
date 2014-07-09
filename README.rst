@@ -49,7 +49,7 @@ Running the test suite is as simple as: ::
 
 or, to also show test coverage: ::
 
-    source run-coverage.sh
+    ./run-coverage.sh
 
 License
 =======
