@@ -11,6 +11,10 @@
 .. image:: https://pypip.in/d/setuptools-bower/badge.png
    :target: https://pypi.python.org/pypi/setuptools-bower/
 
+About
+=====
+setuptools-bower provides setuptools commands for integrating bower.
+
 Usage
 =====
 setuptools-bower is on PyPI so all you need is: ::
@@ -29,19 +33,21 @@ In your ```setup.cfg``` you may setup aliases to combine bower installation with
   install_all = install_bower install
 
 Documentation
-============
-Documentation is available at <http://setuptools-bower.readthedocs.org> or can be build using Sphinx: ::
+=============
+Documentation is readable at http://setuptools-bower.readthedocs.org or can be build using Sphinx: ::
 
+    git submodule init
+    git submodule update
     pip install Sphinx
     python setup.py build_sphinx
 
 Testing
 =======
-Running the tests are as simple as: ::
+Running the test suite is as simple as: ::
 
     python setup.py test
 
-or (to also show test coverage) ::
+or, to also show test coverage: ::
 
     source run-coverage.sh
 
