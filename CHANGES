@@ -4,6 +4,12 @@ Changelog
 Here you can see the full list of changes between each setuptools-bower
 release.
 
+Version 0.2.0 (released 2014-07-09)
+-----------------------------------
+- Adds support for Python-3.4.
+- Fixes grunt build command.
+- Improves documentation.
+
 Version 0.1
 -----------
 - Initial public release
