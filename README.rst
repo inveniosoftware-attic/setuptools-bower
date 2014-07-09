@@ -7,9 +7,9 @@
 .. image:: https://coveralls.io/repos/inveniosoftware/setuptools-bower/badge.png?branch=master
     :target: https://coveralls.io/r/inveniosoftware/setuptools-bower
 .. image:: https://pypip.in/v/setuptools-bower/badge.png
-   :target: https://crate.io/packages/setuptools-bower/
+   :target: https://pypi.python.org/pypi/setuptools-bower/
 .. image:: https://pypip.in/d/setuptools-bower/badge.png
-   :target: https://crate.io/packages/setuptools-bower/
+   :target: https://pypi.python.org/pypi/setuptools-bower/
 
 Usage
 =====
