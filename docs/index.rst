@@ -46,7 +46,7 @@ The development version can be downloaded from `its page at GitHub
     git clone https://github.com/inveniosoftware/setuptools-bower.git
     cd setuptools-bower
     python setup.py develop
-    ./run-coverage.sh
+    ./run-tests.sh
 
 Requirements
 ------------
