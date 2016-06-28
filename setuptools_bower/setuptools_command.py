@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-##
-## This file is part of setuptools-bower
-## Copyright (C) 2013, 2014 CERN.
-##
-## setuptools-bower is free software; you can redistribute it and/or
-## modify it under the terms of the Revised BSD License; see LICENSE
-## file for more details.
+#
+# This file is part of setuptools-bower
+# Copyright (C) 2013, 2014, 2016 CERN.
+#
+# setuptools-bower is free software; you can redistribute it and/or
+# modify it under the terms of the Revised BSD License; see LICENSE
+# file for more details.
 
 """Custom setuptools commands implementation."""
 
@@ -13,7 +13,6 @@ import setuptools
 
 
 class BowerBuildCommand(setuptools.Command):
-
     """Setuptools command for running ``bower <command>``."""
 
     description = "run bower commands."
@@ -48,7 +47,6 @@ class BowerBuildCommand(setuptools.Command):
 
 
 class GruntBuildCommand(setuptools.Command):
-
     """Setuptools command for running ``grunt <command>``."""
 
     description = "run grunt commands."
@@ -80,7 +78,6 @@ class GruntBuildCommand(setuptools.Command):
 
 
 class NPMBuildCommand(setuptools.Command):
-
     """Setuptools command for running ``npm <command>``."""
 
     description = "run NPM commands."

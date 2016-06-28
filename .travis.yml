@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##
 ## This file is part of setuptools-bower
-## Copyright (C) 2013, 2014 CERN.
+## Copyright (C) 2013, 2014, 2016 CERN.
 ##
 ## setuptools-bower is free software; you can redistribute it and/or
 ## modify it under the terms of the Revised BSD License; see LICENSE
@@ -17,15 +17,15 @@ python:
 
 install:
   - npm install -g bower
-  - pip install --upgrade pip  --use-mirrors
-  - pip install coveralls pep8 pep257 sphinx --use-mirrors
+  - pip install --upgrade pip
+  - pip install coveralls pycodestyle pydocstyle sphinx
   - pip install .
 
 script:
   - sphinx-build -qnNW docs docs/_build/html
   - coverage run setup.py test
-  - pep8 --ignore=E265 setuptools_bower
-  - pep257 setuptools_bower
+  - pycodestyle --ignore=E265 setuptools_bower
+  - pydocstyle setuptools_bower
 
 after_success:
   - coveralls
