@@ -99,7 +99,7 @@ the interested.
 Contributing
 ------------
 
-See <http://invenio-software.org/wiki/Development/Contributing> for now.
+See <http://inveniosoftware.org/wiki/Development/Contributing> for now.
 
 
 .. include:: ../CHANGES
